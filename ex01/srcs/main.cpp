@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <array>
+// #include <array>
 #include <deque>
 #include <list>
 
@@ -100,41 +100,41 @@ void	testLessThanTwoNumbersException(void)
 	}	
 }
 
-void	testArray(void)
-{
-	std::cout << "**Checking addManyNumbers with an array...**" << std::endl;
-	Span	s(6);
-	s.addNumber(5);
-	s.addNumber(4);
-	std::array<int, 3>	ar;
-	ar[0] = 3;
-	ar[1] = 7;
-	ar[2] = 8;
-	try
-	{
-		s.addManyNumbers(2, ar);
-	}
-	catch(const Span::NotEnoughCapacityException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "s: ";
-	s.printSpan();
-	std::cout << "Trying to add more elements than s capacity:" << std::endl;
-	std::array<int, 2>	ar2;
-	ar2[0] = 21;
-	ar2[0] = 42;
-	try
-	{
-		s.addManyNumbers(5, ar2);
-	}
-	catch(const Span::NotEnoughCapacityException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "s: ";
-	s.printSpan();
-}
+// void	testArray(void)
+// {
+// 	std::cout << "**Checking addManyNumbers with an array...**" << std::endl;
+// 	Span	s(6);
+// 	s.addNumber(5);
+// 	s.addNumber(4);
+// 	std::array<int, 3>	ar;
+// 	ar[0] = 3;
+// 	ar[1] = 7;
+// 	ar[2] = 8;
+// 	try
+// 	{
+// 		s.addManyNumbers(2, ar);
+// 	}
+// 	catch(const Span::NotEnoughCapacityException& e)
+// 	{
+// 		std::cout << e.what() << std::endl;
+// 	}
+// 	std::cout << "s: ";
+// 	s.printSpan();
+// 	std::cout << "Trying to add more elements than s capacity:" << std::endl;
+// 	std::array<int, 2>	ar2;
+// 	ar2[0] = 21;
+// 	ar2[0] = 42;
+// 	try
+// 	{
+// 		s.addManyNumbers(5, ar2);
+// 	}
+// 	catch(const Span::NotEnoughCapacityException& e)
+// 	{
+// 		std::cout << e.what() << std::endl;
+// 	}
+// 	std::cout << "s: ";
+// 	s.printSpan();
+// }
 
 void	testArray2(void)
 {
@@ -155,12 +155,13 @@ void	testArray2(void)
 	std::cout << "s: ";
 	s.printSpan();
 	std::cout << "Trying to add more elements than s capacity:" << std::endl;
-	std::array<int, 2>	ar2;
-	ar2[0] = 21;
-	ar2[0] = 42;
+	int	ar2[] = {21, 42};
+	// std::array<int, 2>	ar2;
+	// ar2[0] = 21;
+	// ar2[0] = 42;
 	try
 	{
-		s.addManyNumbers(5, ar2);
+		s.addManyNumbers(5, ar2, 2);
 	}
 	catch(const Span::NotEnoughCapacityException& e)
 	{
@@ -242,40 +243,40 @@ void	testDeque(void)
 	s.printSpan();
 }
 
-void	testForwardList(void)
-{
-	std::cout << "**Checking addManyNumbers with a forward list...**" << std::endl;
-	Span	s(6);
-	s.addNumber(5);
-	s.addNumber(4);
-	std::forward_list<int>	fl;
-	int	ar[] = {3, 7, 12};
-	fl.assign(ar, ar + 3);
-	try
-	{
-		s.addManyNumbers(2, fl);
-	}
-	catch(const Span::NotEnoughCapacityException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "s: ";
-	s.printSpan();
-	std::cout << "Trying to add more elements than s capacity:" << std::endl;
-	std::forward_list<int>	fl2;
-	int	ar2[] = {21, 42};
-	fl2.assign(ar2, ar2 + 2);
-	try
-	{
-		s.addManyNumbers(5, fl2);
-	}
-	catch(const Span::NotEnoughCapacityException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "s: ";
-	s.printSpan();	
-}
+// void	testForwardList(void)
+// {
+// 	std::cout << "**Checking addManyNumbers with a forward list...**" << std::endl;
+// 	Span	s(6);
+// 	s.addNumber(5);
+// 	s.addNumber(4);
+// 	std::forward_list<int>	fl;
+// 	int	ar[] = {3, 7, 12};
+// 	fl.assign(ar, ar + 3);
+// 	try
+// 	{
+// 		s.addManyNumbers(2, fl);
+// 	}
+// 	catch(const Span::NotEnoughCapacityException& e)
+// 	{
+// 		std::cout << e.what() << std::endl;
+// 	}
+// 	std::cout << "s: ";
+// 	s.printSpan();
+// 	std::cout << "Trying to add more elements than s capacity:" << std::endl;
+// 	std::forward_list<int>	fl2;
+// 	int	ar2[] = {21, 42};
+// 	fl2.assign(ar2, ar2 + 2);
+// 	try
+// 	{
+// 		s.addManyNumbers(5, fl2);
+// 	}
+// 	catch(const Span::NotEnoughCapacityException& e)
+// 	{
+// 		std::cout << e.what() << std::endl;
+// 	}
+// 	std::cout << "s: ";
+// 	s.printSpan();	
+// }
 
 void	testList(void)
 {
@@ -320,8 +321,8 @@ int main(void)
 	testFullContainerException(s);
 	std::cout << std::endl;
 	testLessThanTwoNumbersException();
-	std::cout << std::endl;
-	testArray();
+	// std::cout << std::endl;
+	// testArray();
 	std::cout << std::endl;
 	testArray2();
 	std::cout << std::endl;
@@ -329,8 +330,8 @@ int main(void)
 	std::cout << std::endl;
 	testDeque();
 	std::cout << std::endl;
-	testForwardList();
-	std::cout << std::endl;
+	// testForwardList();
+	// std::cout << std::endl;
 	testList();
 	return 0;
 }

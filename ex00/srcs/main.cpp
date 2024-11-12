@@ -12,36 +12,36 @@
 
 #include "easyfind.hpp"
 #include <iostream>
-#include <array>
+// #include <array>
 #include <vector>
 #include <list>
 
 int main(void)
 {
-	std::cout << "ARRAY" << std::endl;
-	std::array<int, 3>	ar;
-	std::array<int, 3>::iterator it;
-	ar[0] = 3;
-	ar[1] = 5;
-	ar[2] = 9;
-	try
-	{
-		it = easyfind<std::array<int, 3> >(ar, 5);
-		std::cout << *it << std::endl;
-	}
-	catch(const NotFoundException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		it = easyfind<std::array<int, 3> >(ar, 6);
-		std::cout << *it << std::endl;
-	}
-	catch(const NotFoundException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	// std::cout << "ARRAY" << std::endl;
+	// std::array<int, 3>	ar;
+	// std::array<int, 3>::iterator it;
+	// ar[0] = 3;
+	// ar[1] = 5;
+	// ar[2] = 9;
+	// try
+	// {
+	// 	it = easyfind<std::array<int, 3> >(ar, 5);
+	// 	std::cout << *it << std::endl;
+	// }
+	// catch(const NotFoundException& e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
+	// try
+	// {
+	// 	it = easyfind<std::array<int, 3> >(ar, 6);
+	// 	std::cout << *it << std::endl;
+	// }
+	// catch(const NotFoundException& e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
 	std::cout << "VECTOR" << std::endl;
 	std::vector<int>	v;
 	std::vector<int>::iterator it2;
@@ -51,7 +51,7 @@ int main(void)
 	try
 	{
 		it2 = easyfind<std::vector<int> >(v, 5);
-		std::cout << *it << std::endl;
+		std::cout << *it2 << std::endl;
 	}
 	catch(const NotFoundException& e)
 	{

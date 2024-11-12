@@ -19,7 +19,7 @@
 #include <cstdlib>
 #include <limits>
 #include <algorithm>
-#include <forward_list>
+// #include <forward_list>
 
 class Span
 {
@@ -65,13 +65,13 @@ class Span
 			this->_v.insert(this->_v.begin() + position, data, data + size);
 		}
 
-		void	addManyNumbers(size_t position, std::forward_list<int> data)
-		{
-			size_t	size = std::distance(data.begin(), data.end());
-			if (size > this->_n - position)
-				throw Span::NotEnoughCapacityException();
-			this->_v.insert(this->_v.begin() + position, data.begin(), data.end());
-		}
+		// void	addManyNumbers(size_t position, std::forward_list<int> data)
+		// {
+		// 	size_t	size = std::distance(data.begin(), data.end());
+		// 	if (size > this->_n - position)
+		// 		throw Span::NotEnoughCapacityException();
+		// 	this->_v.insert(this->_v.begin() + position, data.begin(), data.end());
+		// }
 
 	private:
 		unsigned int		_n;
